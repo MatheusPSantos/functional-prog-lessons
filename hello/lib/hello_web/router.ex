@@ -26,6 +26,7 @@ defmodule HelloWeb.Router do
     get "/", PageController, :index
     get "/", PageController, :test
     get "/hello", HelloController, :index
+    # get "/hello/:messenger", PageController, :show
     get "/hello/:messenger", HelloController, :show
     resources "/users", UserController do
       resources "/posts", PostController

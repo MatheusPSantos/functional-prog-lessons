@@ -5,6 +5,9 @@ defmodule HelloWeb.HelloController do
     end
 
     def show(conn, %{"messenger" => messenger}) do
-        render(conn, "show.html", messenger: messenger)
+        # render(conn, "show.html", messenger: messenger)
+        conn
+        |> Plug.Conn.assign(:messenger, messenger)
+        |> render("show.html")
     end
 end
