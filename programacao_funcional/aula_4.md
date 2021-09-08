@@ -41,3 +41,19 @@ int fatorial(int n) {
     return 1;
 }
 ```
+
+## Nonstrict evaluation
+__Avaliações não restritas__ nos permite ter variáveis que ainda não foram computadas. Por outro lado, __Strict Evaluations__ atribuem uma variável assim que ela é definida. Nonstrict significa que podemos ter uma variável que não seja atribuída (computada) até a primeira vez em que é referenciada.
+Nesse ponto podemos lembrar do Haskell que sempre levanta a bandeira do "Lazy Evaluation" (Avaliação Preguiçosa), "Delayed Evaluation" (Avaliação tardia), ou ainda Call-by-name (chame pelo nome;) que a  grosso modo são as mesma coisa. Isso é inerente à linguagem de programação, não dependendo do programador.
+
+## Statements
+As __declarações__ são pedaços de códigos "avaliáveis" que possuem valores de retorno. Pense em instruções "if" que tenham algum valor de retorno. Cada linha de código deve ser considerada uma declaração.
+```ruby
+puts("O valor de retorno é #{ x = 1})
+O Valor de retorno é 1
+```
+Ou seja, a programação funcional introduz a ideia de que cada linha de código deve retornar um valor. Então, se estamos aptos a fazer mais uso de statements nós podemos reduzir o número de variáveis e se reduzimos a quantidade de variáveis, reduziremos também a necessidade de "mudá-las" e isso aumenta a habilidade de executar processos concorrentes e torna-se mais funcional.
+
+## Pattern Matching
+A __correspondência de padrões__ não aparece realmente na matemática, mas ajuda a programação funcional a diminuir a necessidade de variáveis específicas. Ou ainda, Pattern Matching nos permite procurar padrões simples em valores, estruturas de dados, e até funções.
+No código, gerlamente encapsulamos um grupo de variáveis juntas dentro de um objeto, A correspondência de padrões nos permite obter uma melhor varificação de tipos e extrarir elementos de um objeto, criando instruções mais simples e concisas com menos necessidades de definições de variáveis.
