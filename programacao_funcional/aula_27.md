@@ -40,3 +40,13 @@ upcase.("hello, world")
 upcase = &String.upcase/1
 upcase.("hello, world")
 ```
+
+# Pipe Operator
+O pipe operator é um operador representado por `|>`. É uma forma de encadear chamadas. Ele permite que o resiltado da expressão anterior seja o parâmetro da expressão seguinte. Exemplo:
+```elixir
+"Teste" |> String.length |> IO.puts
+# Pode ficar mais legível da seguinte maneira
+"Teste"
+|> String.length
+|> IO.puts
+```
