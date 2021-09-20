@@ -43,3 +43,45 @@ iex(8)> cabeca
 iex(9)> cauda
 [2, 3, 4, 5]
 ```
+
+#Pattern Matching, underscore e pin operator
+
+Ainda sobre patterrn matching, imagine que temos a seguinte situação...
+```elixir
+{x, y} = {32, 25}
+```
+Se não quisermos mudar o valor de y somos obrigado a usar o "underscore" `_`.
+```powershell
+iex(1)> {a, b} = {23, 34} 
+{23, 34}
+iex(2)> {a, b} = {23, 37}
+{23, 37}
+iex(3)> b
+37      
+iex(4)> {a, _} = {67,89}
+{67, 89}
+iex(5)> _
+** (CompileError) iex:6: invalid use of _. "_" represents a value to be ignored in a pattern and cannot be used in expressions
+
+iex(6)> a
+67
+iex(7)> b
+37
+```
+### pin operator
+Quando não é necessário fazer a ressociação utiliza-se o pin operator. O uso do pin operator é justamente impedir a reassociação de variváveis.
+```powershell
+iex(10)> x = 1
+1
+iex(11)> ^x = 3
+** (MatchError) no match of right hand side value: 3
+```
+Ao colocar p `^` antes da variável o Elixir levantou um erro informando que o valor não "casa" com o valor atual de x, ele evitou o rebind. É possível usá-lo em conjunto com o pattern matching, fazendo com que seja evitado novos rebinds não desejados.
+```bash
+iex(14)> {x,^y} = {76,89} 
+{76, 89}
+iex(15)> x
+76
+iex(16)> y
+89
+```
